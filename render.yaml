@@ -3,15 +3,13 @@
 services:
   - type: web
     name: cibil-improve
-    env: static
+    runtime: static
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     headers:
-      - path: '/*'
-        headers:
-          - key: Cache-Control
-            value: public, max-age=31536000, immutable
-      - path: '/*.html'
-        headers:
-          - key: Cache-Control
-            value: public, max-age=0, must-revalidate
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*.html
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
