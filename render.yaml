@@ -1,7 +1,7 @@
 # Render Blueprint Specification for Cibil Improve
 # Ref: https://render.com/docs/blueprint-spec
 services:
-  - type: static
+  - type: web
     name: cibil-improve
     env: static
     buildCommand: npm install && npm run build
